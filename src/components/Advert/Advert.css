@@ -1,0 +1,40 @@
+.home__adverts--list-item-content {
+  height: 350px;
+  color: black;
+}
+
+.home__adverts--list-item-content > .advert__img {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.home__adverts--list-item-content > .advert__info {
+  padding: 1.125rem;
+  width: 100%;
+}
+
+.home__adverts--list-item-content > .advert__info > .advert__price,
+.home__adverts--list-item-content > .advert__info > .advert__name,
+.home__adverts--list-item-content > .advert__info > .advert__description {
+  text-align: start;
+}
+
+.home__adverts--list-item-content > .advert__info > .advert__price {
+  font-size: 1.5rem;
+}
+
+.home__adverts--list-item-content > .advert__info > .advert__name {
+  font-size: 1.125rem;
+}
+
+.home__adverts--list-item-content > .advert__info > .advert__description {
+  font-size: 0.8rem;
+}
+
+/****************************** RESPONSIVE DESIGN *******************************/
+@media (min-width: 576px) {
+  .home__adverts--list-item-content {
+    height: 350px;
+  }
+}
