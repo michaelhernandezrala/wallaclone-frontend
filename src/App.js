@@ -1,19 +1,16 @@
-// Libreries
-import { Switch, Link, Route } from 'react-router-dom';
-
-// CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Home from './pages/Home';
+/**
+ * App.js
+ */
+import Register from "./components/register/Register";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-      </Switch>
+      <header className="App-header">
+        <h1>REGISTER</h1>
+        <p></p>
+      </header>
     </div>
   );
 }
