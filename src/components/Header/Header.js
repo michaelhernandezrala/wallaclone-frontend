@@ -13,7 +13,7 @@ function Header() {
             <Nav.Link href='#home'><FontAwesomeIcon icon='far fa-user' />Regístrate o inicia sesión</Nav.Link>
             <Nav.Link href='#link'>Subir producto</Nav.Link>
             <NavDropdown title='Dropdown' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='#action/3.1'>Configuracion</NavDropdown.Item>
+              <NavDropdown.Item href='/account/settings'>Configuracion</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href='#action/3.4'>Cerrar Sesión</NavDropdown.Item>
             </NavDropdown>

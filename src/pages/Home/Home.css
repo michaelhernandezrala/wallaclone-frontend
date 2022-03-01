@@ -51,6 +51,10 @@
     margin-right: 0%;
     max-width: 30%;
   }
+  .home__adverts--list > .home__adverts--list-item:not(:nth-child(3n + 2)) {
+    margin-right: 0%;
+    margin-left: 0%;
+  }
   .home__adverts--list > .home__adverts--list-item:nth-child(3n + 2) {
     margin-right: 5%;
     margin-left: 5%;

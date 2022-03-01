@@ -1,14 +1,16 @@
-import React from 'react'
+import React from 'react';
 
 // Components
-import Layout from '../../components/Layout/Layout'
+import Layout from '../../components/Layout/Layout';
 import Advert from '../../components/Advert/Advert';
+import Searcher from '../../components/Searcher/Searcher';
 
 // CSS
 import './Home.css';
 
 // Bootstrap
 import { Container } from 'react-bootstrap';
+
 
 const adverts = [{
   "id": "1",
@@ -171,6 +173,9 @@ function Home() {
     <Layout title='Home'>
       <main className='home'>
         <Container>
+          <section className='home__searcher'>
+            <Searcher />
+          </section>
           <section className='home__adverts'>
             <ul className='home__adverts--list'>
               {adverts.map(advert => (

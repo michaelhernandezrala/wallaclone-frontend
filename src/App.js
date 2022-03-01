@@ -5,6 +5,9 @@ import { Switch, Link, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Home from './pages/Home/Home';
+import Settings from './pages/Settings/Settings';
+
+// Components
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <Home />
+        </Route>
+        <Route path='/account/settings'>
+          <Settings />
         </Route>
       </Switch>
     </div>

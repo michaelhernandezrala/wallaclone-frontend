@@ -1,0 +1,100 @@
+.settings__content {
+  background-color: aliceblue;
+  padding: 1.5rem 1rem;
+  font-weight: normal;
+}
+
+.settings__content > .settings__feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings__content > .settings__feature > .feature__info {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.settings__content > .settings__feature > .feature__info > p {
+  margin: 0;
+  text-align: start;
+  width: 100%;
+  font-size: 0.7rem;
+  padding: 0.2rem auto;
+}
+
+.settings__content > .settings__feature > .feature__info > p > strong {
+  font-size: 0.85rem;
+}
+
+.delete__account {
+  border-radius: 5px;
+  font-size: 0.75rem;
+  border: none;
+  background-color: rgb(185, 0, 0);
+  padding: 0.2rem auto;
+  width: 60px;
+  height: 30px;
+  color: white;
+  margin-left: 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.delete__account:hover {
+  cursor: pointer;
+  background-color: rgb(223, 0, 0);
+}
+
+/****************************** RESPONSIVE DESIGN *******************************/
+
+@media (min-width: 576px) {
+  .delete__account {
+    width: 70px;
+    height: 30px;
+  }
+  .settings__content > .settings__feature > .feature__info > p {
+    font-size: 0.8rem;
+  }
+  .settings__content > .settings__feature > .feature__info > p > strong {
+    font-size: 0.95rem;
+  }
+  .delete__account {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .delete__account {
+    width: 90px;
+    height: 40px;
+  }
+  .settings__content > .settings__feature > .feature__info > p {
+    font-size: 0.95rem;
+  }
+  .settings__content > .settings__feature > .feature__info > p > strong {
+    font-size: 1.1rem;
+  }
+  .delete__account {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .delete__account {
+    width: 100px;
+    height: 50px;
+  }
+  .settings__content > .settings__feature > .feature__info > p {
+    font-size: 1.05rem;
+  }
+  .settings__content > .settings__feature > .feature__info > p > strong {
+    font-size: 1.2rem;
+  }
+  .delete__account {
+    font-size: 1.1rem;
+  }
+}
