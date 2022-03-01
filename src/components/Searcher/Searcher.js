@@ -2,7 +2,6 @@ import React from 'react';
 
 // Components
 import './Searcher.css';
-import Slider, { Range } from 'rc-slider';
 
 
 
@@ -16,8 +15,6 @@ function Searcher() {
         <div class="form-group">
           <input type="text" class="form-control" id="name" placeholder="Search product" />
         </div>
-        <Slider />
-        <Range />
         <div className='form-group'>
           <div class="form-group-check form-check form-check-inline">
             <label class="form-check-label" for="compra">Buy</label>

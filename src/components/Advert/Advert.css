@@ -12,6 +12,7 @@
 .home__adverts--list-item-content > .advert__info {
   padding: 1.125rem;
   width: 100%;
+  position: relative;
 }
 
 .home__adverts--list-item-content > .advert__info > .advert__price,
@@ -30,6 +31,20 @@
 
 .home__adverts--list-item-content > .advert__info > .advert__description {
   font-size: 0.8rem;
+}
+
+.advert__icon {
+  position: absolute;
+  top: 0;
+  color: black;
+  font-size: 1.75rem;
+  right: 0;
+  margin: 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.advert__icon:hover {
+  color: red;
 }
 
 /****************************** RESPONSIVE DESIGN *******************************/
