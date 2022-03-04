@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Home from './pages/Home/Home';
 import Settings from './pages/Settings/Settings';
+import Login from './pages/Login/Login';
 
 // Components
 
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path='/account/settings'>
           <Settings />
+        </Route>
+        <Route>
+          <Login />
         </Route>
       </Switch>
     </div>

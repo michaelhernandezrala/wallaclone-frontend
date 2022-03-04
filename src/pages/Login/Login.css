@@ -1,0 +1,102 @@
+.login {
+  height: 100vh;
+  background-image: url('../../../public/img/login.jpg');
+  background-size: cover;
+  background-position: left;
+}
+
+.login > .login__overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .login__content {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  width: 80%;
+}
+
+.login__content > .login__title {
+  margin: 1rem 1rem 2rem;
+  font-size: 2rem;
+}
+
+.login__content > .login__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control-remember-me {
+  margin: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.form-control-remember-me > label {
+  margin-right: 0.5rem;
+}
+
+.login__button {
+  width: 60%;
+  margin: 0.75rem auto 1rem;
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  border-radius: 5px;
+  background-color: rgb(2, 236, 14);
+  font-weight: bold;
+  transition: all 300ms ease-in-out;
+}
+
+.login__button:hover {
+  background-color: rgb(28, 255, 28);
+}
+
+/****************************** RESPONSIVE DESIGN *******************************/
+
+@media (min-width: 576px) {
+  .login .login__content {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-control-remember-me {
+    font-size: 0.8rem;
+  }
+  .login__content > .login__title {
+    font-size: 2.5rem;
+  }
+  .login__button {
+    width: 50%;
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .login .login__content {
+    width: 30%;
+  }
+  .form-control-remember-me {
+    font-size: 0.9rem;
+  }
+  .login__content > .login__title {
+    font-size: 3rem;
+  }
+  .form-control-remember-me {
+    margin: 0.5rem;
+  }
+  .login__button {
+    width: 40%;
+    font-size: 1rem;
+  }
+}
