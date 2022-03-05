@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormData from '../../components/FormData/FormData';
 import { Formik, Field, Form } from 'formik';
 import register from '../../api/register';
 
 function Register() {
+  const [errorRegister, setErrorRegister] = useState({
+    isError: false,
+    message: '',
+  });
+
   const validateName = (value) => {
     let error = '';
     if (!value) {
@@ -60,19 +65,34 @@ function Register() {
             }}
             onSubmit={async (values) => {
               const { name, email, password } = values;
-              await register({
-                name,
-                email,
-                password,
-              });
+
+              try {
+                const response = await register({
+                  name,
+                  email,
+                  password,
+                });
+                setErrorRegister({
+                  isError: false,
+                  message: '',
+                });
+              } catch (error) {
+                setErrorRegister({
+                  isError: true,
+                  message: 'The actual email already exists',
+                });
+              }
             }}
           >
             {({ errors, touched, isValidating, values }) => (
               <Form>
+                <label htmlFor='name'>Name</label>
                 <Field type='text' name='name' validate={validateName} />
                 {errors.name && touched.name && <div>{errors.name}</div>}
+                <label htmlFor='email'>Email</label>
                 <Field name='email' validate={validateEmail} />
                 {errors.email && touched.email && <div>{errors.email}</div>}
+                <label htmlFor='password'>Password</label>
                 <Field
                   type='password'
                   name='password'
@@ -81,6 +101,7 @@ function Register() {
                 {errors.password && touched.password && (
                   <div>{errors.password}</div>
                 )}
+                <label htmlFor='confirmPassword'>Confirm Password</label>
                 <Field
                   type='password'
                   name='confirmPassword'
@@ -92,6 +113,7 @@ function Register() {
                   <div>{errors.confirmPassword}</div>
                 )}
                 <button type='submit'>Submit</button>
+                {errorRegister.isError ? <p>{errorRegister.message}</p> : null}
               </Form>
             )}
           </Formik>
