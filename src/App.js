@@ -7,6 +7,7 @@ import './App.css';
 import Home from './pages/Home/Home';
 import Settings from './pages/Settings/Settings';
 import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 // Components
 
@@ -20,8 +21,11 @@ function App() {
         <Route path='/account/settings'>
           <Settings />
         </Route>
-        <Route>
+        <Route path='/login'>
           <Login />
+        </Route>
+        <Route path='/register'>
+          <Register/>
         </Route>
       </Switch>
     </div>
