@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormData from '../../components/FormData/FormData';
 import { Formik, Field, Form } from 'formik';
 import register from '../../api/register';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const [errorRegister, setErrorRegister] = useState({
@@ -67,7 +68,7 @@ function Register() {
               const { name, email, password } = values;
 
               try {
-                const response = await register({
+                await register({
                   name,
                   email,
                   password,
@@ -76,6 +77,7 @@ function Register() {
                   isError: false,
                   message: '',
                 });
+                console.log('user register correctly');
               } catch (error) {
                 setErrorRegister({
                   isError: true,
@@ -114,6 +116,7 @@ function Register() {
                 )}
                 <button type='submit'>Submit</button>
                 {errorRegister.isError ? <p>{errorRegister.message}</p> : null}
+                <Link to='/login'>I already have an account</Link>
               </Form>
             )}
           </Formik>
