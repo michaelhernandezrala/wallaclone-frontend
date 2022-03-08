@@ -4,14 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { BrowserRouter as Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom';
+import storage from './utils/storage';
+import { setAuthorizationHeader } from './api/client';
+
+const token = storage.get('auth');
+setAuthorizationHeader(token);
+console.log(token);
 
 ReactDOM.render(
-  <Route>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Route>,
+  <React.StrictMode>
+    <App isInitiallyLogged={!!token} />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

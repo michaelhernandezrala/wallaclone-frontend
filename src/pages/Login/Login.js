@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import login from '../../api/login';
+import AuthContext from '../../utils/context';
 
-function Login() {
+function Login({ history, location }) {
+  const { handleLogin } = useContext(AuthContext);
   const [errorLogin, setErrorLogin] = useState({
     isError: false,
     message: '',
@@ -36,7 +38,12 @@ function Login() {
             }}
             onSubmit={async (values) => {
               try {
-                const response = await login(values, checked);
+                console.log('esto dentro', history);
+                await login(values, checked);
+                handleLogin();
+                const { from } = location.state || { from: { pathname: '/' } };
+                console.log('from', from);
+                history.replace(from);
               } catch (error) {}
             }}
           >
@@ -59,6 +66,7 @@ function Login() {
                 <button type='submit'>Submit</button>
                 {errorLogin.isError ? <p>{errorLogin.message}</p> : null}
                 <Link to='/register'>I don't have an account</Link>
+                <Link to='/forgottenPassword'>Recover my password</Link>
               </Form>
             )}
           </Formik>
