@@ -24,8 +24,6 @@ import Swal from 'sweetalert2';
 
 import { NewAdvert, AdvertDetail } from './components/adverts';
 import { PrivateRoute } from './components/auth';
-import { useState } from "react";
-import { AuthContextProvider } from "./components/auth/context";
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = useState(isInitiallyLogged);
@@ -61,7 +59,7 @@ function App({ isInitiallyLogged }) {
               <Settings />
             </Route>
             <Route path='/login'>
-              <Login />
+              {(routeProps) => <Login {...routeProps} />}
             </Route>
             <Route path='/register'>
               <Register />
@@ -71,22 +69,19 @@ function App({ isInitiallyLogged }) {
             </Route>
             {/* <PrivateRoute path="/adverts/new" component={NewAdvert}>
                 </PrivateRoute>  */}
-            <Route path="/adverts/new" component={NewAdvert}>
-            </Route>
-            <Route path="/adverts/:advertId" component={AdvertDetail
-            }>
-            </Route>
+            <Route path='/adverts/new' component={NewAdvert}></Route>
+            <Route path='/adverts/:advertId' component={AdvertDetail}></Route>
             <Route>
-              <Redirect to="/home" />
+              <Redirect to='/home' />
             </Route>
-            <Route path="/404">
+            <Route path='/404'>
               <div>404 || Not Found Page</div>
-              <Link style={{ color: "rgb (1, 165, 130)" }} to="/">
+              <Link style={{ color: 'rgb (1, 165, 130)' }} to='/'>
                 Back
               </Link>
             </Route>
             <Route>
-              <Redirect to="/404" />
+              <Redirect to='/404' />
             </Route>
           </Switch>
         </AuthContextProvider>

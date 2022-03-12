@@ -16,15 +16,9 @@ function Header() {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='me-auto'>
             {isLogged ? (
-              <Nav.Link onClick={handleLogout}>
-                <FontAwesomeIcon icon='far fa-user' />
-                Logout
-              </Nav.Link>
+              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             ) : (
-              <Nav.Link href='/login'>
-                <FontAwesomeIcon icon='far fa-user' />
-                Login
-              </Nav.Link>
+              <Nav.Link href='/login'>Login</Nav.Link>
             )}
 
             <Nav.Link href='#link'>Subir producto</Nav.Link>
