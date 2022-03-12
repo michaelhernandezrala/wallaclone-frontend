@@ -21,7 +21,7 @@ function Header() {
               <Nav.Link href='/login'>Login</Nav.Link>
             )}
 
-            <Nav.Link href='#link'>Subir producto</Nav.Link>
+            <Nav.Link href='/adverts/new'>Subir producto</Nav.Link>
             <NavDropdown title='Dropdown' id='basic-nav-dropdown'>
               <NavDropdown.Item href='/account/settings'>
                 Configuracion
