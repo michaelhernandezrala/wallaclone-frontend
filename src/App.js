@@ -1,10 +1,10 @@
 // Libreries
-import { 
+import {
   BrowserRouter as Router,
-  Switch, 
-  Link, 
-  Route, 
-  Redirect, 
+  Switch,
+  Link,
+  Route,
+  Redirect,
 } from 'react-router-dom';
 
 // CSS
@@ -14,6 +14,11 @@ import Home from './pages/Home/Home';
 import Settings from './pages/Settings/Settings';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import ForgottenPassword from './pages/FogottenPassword/ForgottenPassword';
+import { useState } from 'react';
+import logout from './api/logout';
+import { AuthContextProvider } from './utils/context';
+import Swal from 'sweetalert2';
 
 // Components
 
@@ -29,14 +34,25 @@ function App({ isInitiallyLogged }) {
     setIsLogged(true);
   };
 
-  // const handleLogout = () => {
-  //   logout().then(() => setIsLogged(false));
-  // };
-
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout();
+        setIsLogged(false);
+      }
+    });
+  };
   return (
     <Router>
-      <AuthContextProvider value={{ isLogged, handleLogin }}>
-        <div className="App">
+      <div className='App'>
+        <AuthContextProvider value={{ isLogged, handleLogin, handleLogout }}>
           <Switch>
             <Route exact path='/'>
               <Home />
@@ -48,7 +64,10 @@ function App({ isInitiallyLogged }) {
               <Login />
             </Route>
             <Route path='/register'>
-              <Register/>
+              <Register />
+            </Route>
+            <Route path='/forgottenPassword'>
+              <ForgottenPassword />
             </Route>
             {/* <PrivateRoute path="/adverts/new" component={NewAdvert}>
                 </PrivateRoute>  */}
@@ -59,21 +78,20 @@ function App({ isInitiallyLogged }) {
             </Route>
             <Route>
               <Redirect to="/home" />
-            </Route> 
+            </Route>
             <Route path="/404">
               <div>404 || Not Found Page</div>
-                <Link style={{ color: "rgb (1, 165, 130)" }} to="/">
-                  Back
-                </Link>
+              <Link style={{ color: "rgb (1, 165, 130)" }} to="/">
+                Back
+              </Link>
             </Route>
             <Route>
               <Redirect to="/404" />
-            </Route> 
+            </Route>
           </Switch>
-        </div>
-     </AuthContextProvider>
+        </AuthContextProvider>
+      </div>
     </Router>
-
   );
 }
 
