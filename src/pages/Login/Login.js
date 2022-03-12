@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import login from '../../api/login';
-import AuthContext from '../../utils/context';
+import AuthContext from '../../components/auth/context';
 
 function Login({ history, location }) {
   const { handleLogin } = useContext(AuthContext);

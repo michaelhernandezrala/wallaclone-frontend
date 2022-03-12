@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 //import Layout from "../../layout";
-import { deleteAdvert, getAdvert } from "../service";
-import { Button, Photo } from "../../common";
+import { deleteAdvert, getAdvert } from '../service';
+import { Button, Photo } from '../../common';
+import Layout from '../../Layout/Layout';
+import { Container } from 'react-bootstrap';
 
 function AdvertDetail({ match }) {
   const [advert, setAdvert] = useState();
 
   useEffect(() => {
     getAdvert(match.params.advertId).then((advert) => {
-      return setAdvert(advert);
+      console.log('advertttttt', advert.result[0]);
+      setAdvert(advert.result[0]);
     });
   }, [match.params.advertId]);
 
@@ -26,33 +29,36 @@ function AdvertDetail({ match }) {
   const photo = getAdvertDetail ? { photo: advert.photo } : {};
 
   return getAdvertDetail ? (
-    <section className="AdvertDetail">
-      <article key={advert.id}>
-        <div className="Photo-div">
-          <Photo {...photo} />
-        </div>
-        <div className="text-div">
-          <span className="name">Name: {advert.name}</span>
+    <Layout>
+      <section className='AdvertDetail'>
+        <Container>
+          <article key={advert.id}>
+            <div className='Photo-div'>
+              <Photo {...photo} />
+            </div>
+            <div className='text-div'>
+              <span className='name'>Name: {advert.name}</span>
+              <br />
+              <span className='price'>Price: {advert.price}€</span>
+              <br />
+              <span className='sale'>Sale: {advert.sale ? 'Yes' : 'No'}</span>
+              <br />
+              <span className='tags'>Tags: {advert.tags}</span>
+            </div>
+          </article>
           <br />
-          <span className="price">Price: {advert.price}€</span>
-          <br />
-          <span className="sale">Sale: {advert.sale ? "Yes" : "No"}</span>
-          <br />
-          <span className="tags">Tags: {advert.tags}</span>
-        </div>
-      </article>
-      <br />
-      <div className="delete-button">
-        <p>Are you sure you want to delete the advert?</p>
-        <Button onClick={handleDelete}>Delete Advert</Button>
-      </div>
-    </section>
-  ): (
-    <article title="Advert-title">
-      <div className="advertDetail">Loading adverts...</div>
+          <div className='delete-button'>
+            <p>Are you sure you want to delete the advert?</p>
+            <Button onClick={handleDelete}>Delete Advert</Button>
+          </div>
+        </Container>
+      </section>
+    </Layout>
+  ) : (
+    <article title='Advert-title'>
+      <div className='advertDetail'>Loading adverts...</div>
     </article>
   );
-  
-};
+}
 
 export default AdvertDetail;

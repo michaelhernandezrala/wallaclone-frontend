@@ -27,7 +27,7 @@ function Home() {
           <section className='home__adverts'>
             <ul className='home__adverts--list'>
               {adverts.map((advert) => (
-                <li className='home__adverts--list-item' key={advert.id}>
+                <li className='home__adverts--list-item' key={advert.advertId}>
                   <Advert {...advert} />
                 </li>
               ))}

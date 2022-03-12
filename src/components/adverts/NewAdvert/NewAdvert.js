@@ -53,7 +53,7 @@ function NewAdvert() {
         <Container>
           <h1>Create your new advert here</h1>
           <form className='form' onSubmit={handleSubmit}>
-            <label for='Name'>What product do you want to advertise?</label>
+            <label htmlFor='Name'>What product do you want to advertise?</label>
             <input
               required
               autoFocus
@@ -66,7 +66,7 @@ function NewAdvert() {
             />
             <br />
             <div className='sale'>
-              <label for='Sale'>To Sell</label>
+              <label htmlFor='Sale'>To Sell</label>
               <input
                 required
                 type='radio'
@@ -76,7 +76,7 @@ function NewAdvert() {
                 onChange={handleChange}
                 id='sale'
               />
-              <label for='Buy'>To Buy</label>
+              <label htmlFor='Buy'>To Buy</label>
               <input
                 type='radio'
                 name='buy'
@@ -87,7 +87,7 @@ function NewAdvert() {
               />
             </div>
 
-            <label for='Price'>Price</label>
+            <label htmlFor='Price'>Price</label>
             <input
               required
               name='price'

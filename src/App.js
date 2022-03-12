@@ -17,7 +17,7 @@ import Register from './pages/Register/Register';
 import ForgottenPassword from './pages/FogottenPassword/ForgottenPassword';
 import { useState } from 'react';
 import logout from './api/logout';
-import { AuthContextProvider } from './utils/context';
+import { AuthContextProvider } from './components/auth/context';
 import Swal from 'sweetalert2';
 
 // Components
@@ -67,8 +67,9 @@ function App({ isInitiallyLogged }) {
             <Route path='/forgottenPassword'>
               <ForgottenPassword />
             </Route>
-            {/* <PrivateRoute path="/adverts/new" component={NewAdvert}>
-                </PrivateRoute>  */}
+            <PrivateRoute path='/adverts/new'>
+              <NewAdvert />
+            </PrivateRoute>
             <Route path='/adverts/new' component={NewAdvert}></Route>
             <Route path='/adverts/:advertId' component={AdvertDetail}></Route>
             <Route>

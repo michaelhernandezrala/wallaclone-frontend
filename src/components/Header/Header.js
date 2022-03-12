@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AuthContext from '../../utils/context';
+import AuthContext from '../auth/context';
 import { Link } from 'react-router-dom';
 
 function Header() {
