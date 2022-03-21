@@ -10,7 +10,6 @@ import { setAuthorizationHeader } from './api/client';
 
 const token = storage.get('auth');
 setAuthorizationHeader(token);
-console.log(token);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -38,11 +38,19 @@ function Login({ history, location }) {
             }}
             onSubmit={async (values) => {
               try {
-                await login(values, checked);
-                handleLogin();
-                console.log('despues del handlelogin');
-                const { from } = location.state || { from: { pathname: '/' } };
-                history.replace(from);
+                const response = await login(values, checked);
+                if (response.ok === true) {
+                  handleLogin();
+                  const { from } = location.state || {
+                    from: { pathname: '/' },
+                  };
+                  history.replace(from);
+                } else {
+                  setErrorLogin({
+                    isError: true,
+                    message: response.error,
+                  });
+                }
               } catch (error) {}
             }}
           >

@@ -70,7 +70,6 @@ function App({ isInitiallyLogged }) {
             <PrivateRoute path='/adverts/new'>
               <NewAdvert />
             </PrivateRoute>
-            <Route path='/adverts/new' component={NewAdvert}></Route>
             <Route path='/adverts/:advertId' component={AdvertDetail}></Route>
             <Route>
               <Redirect to='/home' />

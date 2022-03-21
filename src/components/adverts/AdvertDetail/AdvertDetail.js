@@ -10,7 +10,6 @@ function AdvertDetail({ match }) {
 
   useEffect(() => {
     getAdvert(match.params.advertId).then((advert) => {
-      console.log('advertttttt', advert.result[0]);
       setAdvert(advert.result[0]);
     });
   }, [match.params.advertId]);

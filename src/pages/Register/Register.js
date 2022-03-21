@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FormData from '../../components/FormData/FormData';
 import { Formik, Field, Form } from 'formik';
 import register from '../../api/register';
 import { Link } from 'react-router-dom';
+import './Register.css';
 
 function Register() {
   const [errorRegister, setErrorRegister] = useState({
@@ -34,9 +34,9 @@ function Register() {
     if (!value) {
       error = 'This field is required';
     } else if (value.length < 8) {
-      error = '*Password must be 8 characters long.';
+      error = 'Password must be 8 characters long';
     } else if (!passwordRegex.test(value)) {
-      error = '*Invalid password. Must contain one number.';
+      error = 'Invalid password. Must contain one number';
     }
     return error;
   };
@@ -53,10 +53,9 @@ function Register() {
 
   return (
     <main className='register'>
-      <div className='reisger__overlay'>
+      <div className='register__overlay'>
         <section className='register__content'>
           <h1 className='register__title'>Sign Up</h1>
-
           <Formik
             initialValues={{
               name: '',
@@ -89,22 +88,37 @@ function Register() {
             {({ errors, touched, isValidating, values }) => (
               <Form>
                 <label htmlFor='name'>Name</label>
-                <Field type='text' name='name' validate={validateName} />
-                {errors.name && touched.name && <div>{errors.name}</div>}
+                <Field
+                  className='register__input'
+                  type='text'
+                  name='name'
+                  validate={validateName}
+                />
+                {errors.name && touched.name && (
+                  <div className='register__error'>{errors.name}</div>
+                )}
                 <label htmlFor='email'>Email</label>
-                <Field name='email' validate={validateEmail} />
-                {errors.email && touched.email && <div>{errors.email}</div>}
+                <Field
+                  className='register__input'
+                  name='email'
+                  validate={validateEmail}
+                />
+                {errors.email && touched.email && (
+                  <div className='register__error'>{errors.email}</div>
+                )}
                 <label htmlFor='password'>Password</label>
                 <Field
+                  className='register__input'
                   type='password'
                   name='password'
                   validate={validatePassword}
                 />
                 {errors.password && touched.password && (
-                  <div>{errors.password}</div>
+                  <div className='register__error'>{errors.password}</div>
                 )}
                 <label htmlFor='confirmPassword'>Confirm Password</label>
                 <Field
+                  className='register__input'
                   type='password'
                   name='confirmPassword'
                   validate={(value) =>
@@ -112,11 +126,17 @@ function Register() {
                   }
                 />
                 {errors.confirmPassword && touched.confirmPassword && (
-                  <div>{errors.confirmPassword}</div>
+                  <div className='register__error'>
+                    {errors.confirmPassword}
+                  </div>
                 )}
-                <button type='submit'>Submit</button>
+                <Link className='register__already-have-account' to='/login'>
+                  I already have an account
+                </Link>
+                <button className='register__button' type='submit'>
+                  Register
+                </button>
                 {errorRegister.isError ? <p>{errorRegister.message}</p> : null}
-                <Link to='/login'>I already have an account</Link>
               </Form>
             )}
           </Formik>

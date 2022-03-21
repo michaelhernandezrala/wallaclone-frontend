@@ -1,0 +1,137 @@
+.register {
+  background-image: url('../../../public/img/register.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.register__overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+}
+
+.register__content {
+  position: relative;
+  width: 70%;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.register__content > .register__title {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  margin: 2rem;
+}
+
+.register__content label {
+  color: white;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  text-align: start;
+}
+
+.register__content .register__input {
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  margin: 0;
+}
+
+.register__content .register__input:focus {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.register__button {
+  margin: 1rem auto;
+  padding: 0.25rem 1rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid white;
+  color: white;
+  transition: all 300ms ease-in-out;
+}
+
+.register__button:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.register__error {
+  color: red;
+  font-size: 0.7rem;
+  text-align: center;
+  margin: 0;
+}
+
+.register__already-have-account {
+  margin: 0.5rem auto;
+  font-size: 0.8rem;
+}
+
+/****************************** RESPONSIVE DESIGN *******************************/
+
+@media (min-width: 576px) {
+  .register__content {
+    width: 55%;
+  }
+  .register__content > .register__title {
+    font-size: 2rem;
+  }
+  .register__error {
+    font-size: 0.785rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .register__content {
+    width: 45%;
+  }
+  .register__content > .register__title {
+    font-size: 2.25rem;
+  }
+  .register__content label {
+    font-size: 1.15rem;
+  }
+  .register__error {
+    font-size: 0.95rem;
+  }
+  .register__already-have-account {
+    margin: 0.75rem auto;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .register__content {
+    width: 35%;
+  }
+  .register__content > .register__title {
+    font-size: 2.5rem;
+  }
+  .register__content label {
+    font-size: 1.25rem;
+  }
+  .register__error {
+    font-size: 1rem;
+  }
+  .register__already-have-account {
+    margin: 1.2rem auto;
+    font-size: 1.175rem;
+  }
+  .register__button {
+    margin: 1rem auto;
+    padding: 0.5rem 1.25rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+}

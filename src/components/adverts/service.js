@@ -17,7 +17,31 @@ export const deleteAdvert = (advertId) => {
   return client.delete(url);
 };
 
-export const getLatestAdverts = () => {
-  const url = `${advertBaseUrl}/adverts?_expand=user&_embed=likes&_sort=updatedAt&_order=desc`;
+export const getLatestAdverts = (skip, limit, sorter) => {
+  let sort = 'updatedAt';
+  let order = 'desc';
+  switch (sorter) {
+    case 'a-z':
+      sort = 'name';
+      order = 'asc';
+      break;
+    case 'z-a':
+      sort = 'name';
+      order = 'desc';
+      break;
+    case 'cheap':
+      sort = 'price';
+      order = 'asc';
+      break;
+    case 'expensive':
+      sort = 'price';
+      order = 'desc';
+      break;
+    default:
+      sort = 'updatedAt';
+      order = 'desc';
+      break;
+  }
+  const url = `${advertBaseUrl}/adverts?_expand=user&_embed=likes&_skip=${skip}&_limit=${limit}&_sort=${sort}&_order=${order}`;
   return client.get(url);
 };

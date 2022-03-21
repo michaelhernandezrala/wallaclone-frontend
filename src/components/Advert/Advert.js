@@ -14,7 +14,6 @@ function Advert({ advertId, name, price, description, photo }) {
     //TODO Añadir el código
   };
   const isPhoto = photo ? photo : nophoto;
-  console.log(isPhoto);
   return (
     <Link to={`/adverts/${advertId}`} className='link'>
       <article className='home__adverts--list-item-content'>

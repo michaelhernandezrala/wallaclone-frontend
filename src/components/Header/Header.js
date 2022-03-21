@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 function Header() {
   const { isLogged, handleLogout } = useContext(AuthContext);
 
-  console.log('header', isLogged);
   return (
     <Navbar className='navbar' bg='light' expand='lg'>
       <Container>
