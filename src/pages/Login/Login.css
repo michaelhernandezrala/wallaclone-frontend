@@ -5,98 +5,142 @@
   background-position: left;
 }
 
-.login > .login__overlay {
+.login__overlay {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login .login__content {
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 20px;
-  padding: 20px;
-  color: white;
-  width: 80%;
-}
-
-.login__content > .login__title {
-  margin: 1rem 1rem 2rem;
-  font-size: 2rem;
-}
-
-.login__content > .login__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: absolute;
+  width: 100%;
   align-items: center;
+}
+
+.login__content {
+  position: relative;
+  width: 70%;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.login__content > .login__title {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  margin: 2rem;
+}
+
+.login__content label {
+  color: white;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  text-align: start;
+}
+
+.login__content .login__input {
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  margin: 0;
 }
 
 .form-control-remember-me {
-  margin: 0.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.7rem;
+  margin: 1.25rem auto 1rem;
+  color: white;
 }
 
-.form-control-remember-me > label {
-  margin-right: 0.5rem;
+.form-control-remember-me label {
+  color: white;
+  font-size: 1rem !important;
+  margin-right: 0.25rem;
+}
+
+.login__content .login__input:focus {
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .login__button {
-  width: 60%;
-  margin: 0.75rem auto 1rem;
-  font-size: 0.8rem;
-  padding: 0.1rem;
-  border-radius: 5px;
-  background-color: rgb(2, 236, 14);
+  margin: 1rem auto;
+  padding: 0.25rem 1rem;
   font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid white;
+  color: white;
   transition: all 300ms ease-in-out;
 }
 
 .login__button:hover {
-  background-color: rgb(28, 255, 28);
+  background-color: rgba(28, 255, 28, 0.705);
+  cursor: pointer;
+}
+
+.login__error {
+  color: red;
+  font-size: 0.7rem;
+  text-align: center;
+  margin: 0;
+}
+
+.login__link {
+  font-size: 0.75rem;
+  color: rgb(0, 132, 255);
 }
 
 /****************************** RESPONSIVE DESIGN *******************************/
 
 @media (min-width: 576px) {
-  .login .login__content {
-    width: 50%;
+  .login__content {
+    width: 55%;
+  }
+  .login__content > .login__title {
+    font-size: 2rem;
+  }
+  .login__error {
+    font-size: 0.785rem;
   }
 }
 
 @media (min-width: 768px) {
-  .form-control-remember-me {
-    font-size: 0.8rem;
+  .login__content {
+    width: 45%;
   }
   .login__content > .login__title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
-  .login__button {
-    width: 50%;
+  .login__content label {
+    font-size: 1.15rem;
+  }
+  .login__error {
+    font-size: 0.95rem;
+  }
+  .login__link {
     font-size: 0.85rem;
   }
 }
 
 @media (min-width: 992px) {
-  .login .login__content {
-    width: 30%;
-  }
-  .form-control-remember-me {
-    font-size: 0.9rem;
+  .login__content {
+    width: 35%;
   }
   .login__content > .login__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
-  .form-control-remember-me {
-    margin: 0.5rem;
+  .login__content label {
+    font-size: 1.25rem;
+  }
+  .login__error {
+    font-size: 1rem;
   }
   .login__button {
-    width: 40%;
+    margin: 1rem auto;
+    padding: 0.5rem 1.25rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  .login__link {
     font-size: 1rem;
   }
 }

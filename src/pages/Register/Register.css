@@ -76,6 +76,7 @@
 .register__already-have-account {
   margin: 0.5rem auto;
   font-size: 0.8rem;
+  color: rgb(0, 132, 255);
 }
 
 /****************************** RESPONSIVE DESIGN *******************************/

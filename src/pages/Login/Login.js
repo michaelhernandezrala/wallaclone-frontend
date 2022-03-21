@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import login from '../../api/login';
 import AuthContext from '../../components/auth/context';
+import './Login.css';
 
 function Login({ history, location }) {
   const { handleLogin } = useContext(AuthContext);
@@ -57,10 +58,20 @@ function Login({ history, location }) {
             {({ errors, touched, values }) => (
               <Form>
                 <label htmlFor='email'>Email</label>
-                <Field name='email' validate={validateEmail} />
-                {errors.email && touched.email && <div>{errors.email}</div>}
+                <Field
+                  className='login__input'
+                  name='email'
+                  validate={validateEmail}
+                />
+                {errors.email && touched.email && (
+                  <div className='login__error'>{errors.email}</div>
+                )}
                 <label htmlFor='password'>Password</label>
-                <Field type='password' name='password' />
+                <Field
+                  className='login__input'
+                  type='password'
+                  name='password'
+                />
                 <div className='form-control-remember-me'>
                   <label htmlFor='checkbox'>Remember me</label>
                   <input
@@ -70,10 +81,18 @@ function Login({ history, location }) {
                     onChange={handleChange}
                   />
                 </div>
-                <button type='submit'>Submit</button>
-                {errorLogin.isError ? <p>{errorLogin.message}</p> : null}
-                <Link to='/register'>I don't have an account</Link>
-                <Link to='/forgottenPassword'>Recover my password</Link>
+                {errorLogin.isError ? (
+                  <p className='login__error'>{errorLogin.message}</p>
+                ) : null}
+                <Link className='login__link' to='/register'>
+                  I don't have an account
+                </Link>
+                <Link className='login__link' to='/forgottenPassword'>
+                  Recover my password
+                </Link>
+                <button className='login__button' type='submit'>
+                  Log in
+                </button>
               </Form>
             )}
           </Formik>
