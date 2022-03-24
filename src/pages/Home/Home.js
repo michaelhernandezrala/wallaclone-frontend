@@ -96,18 +96,23 @@ function Home() {
   }, [filter, sorter, pagination]);
 
   return (
-    <Layout title='Home'>
+    <Layout>
       <main className='home'>
         <Container>
-          <section className='home__searcher'>
-            <p>{adverts.length}</p>
-            <Searcher setfilter={setfilter} />
-            <Sorter setSorter={setSorter} sorter={sorter} />
-            <Skipper
-              handlePagination={handlePagination}
-              pagination={pagination}
-              count={adverts.length}
-            />
+          <section className='home__filters'>
+            <h1>What are you looking for?</h1>
+            <div className='home__filters--content'>
+              <p className='total__adverts'>
+                <strong>Total adverts</strong> {adverts.length}
+              </p>
+              <Searcher setfilter={setfilter} />
+              <Sorter setSorter={setSorter} sorter={sorter} />
+              <Skipper
+                handlePagination={handlePagination}
+                pagination={pagination}
+                count={adverts.length}
+              />
+            </div>
           </section>
           <section className='home__adverts'>
             {adverts && adverts.length ? (

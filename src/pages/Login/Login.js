@@ -4,6 +4,7 @@ import { Formik, Field, Form } from 'formik';
 import login from '../../api/login';
 import AuthContext from '../../components/auth/context';
 import './Login.css';
+import Swal from 'sweetalert2';
 
 function Login({ history, location }) {
   const { handleLogin } = useContext(AuthContext);
@@ -39,13 +40,23 @@ function Login({ history, location }) {
             }}
             onSubmit={async (values) => {
               try {
+                console.log(values);
                 const response = await login(values, checked);
+                console.log('response', response);
                 if (response.ok === true) {
-                  handleLogin();
-                  const { from } = location.state || {
-                    from: { pathname: '/' },
-                  };
-                  history.replace(from);
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Logged Successfully',
+                    showConfirmButton: false,
+                    timer: 1500,
+                  }).then(() => {
+                    handleLogin();
+                    const { from } = location.state || {
+                      from: { pathname: '/' },
+                    };
+                    history.replace(from);
+                  });
                 } else {
                   setErrorLogin({
                     isError: true,

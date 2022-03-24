@@ -30,6 +30,23 @@
   cursor: pointer;
 }
 
+/** Filters Parts*/
+
+.home .home__filters {
+  margin: 4rem auto 2rem !important;
+  background-color: aliceblue;
+  padding: 2rem 1rem;
+  margin: auto;
+}
+
+.home .home__filters > .home__filters--content > .total__adverts {
+  border: 1px solid red;
+  text-align: end;
+  padding-right: 1rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;
+}
+
 /****************************** RESPONSIVE DESIGN *******************************/
 
 @media (min-width: 576px) {
