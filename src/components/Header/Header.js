@@ -16,7 +16,10 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse className='navbar__toggle' id='basic-navbar-nav'>
-          <Nav className='navbar__menu me-auto'>
+          <Nav className='navbar__menu'>
+            <Nav.Link className='navbar__nav--link' href='/adverts/new'>
+              Create Advert
+            </Nav.Link>
             {isLogged ? (
               <Nav.Link className='navbar__nav--link' onClick={handleLogout}>
                 Logout
@@ -26,14 +29,11 @@ function Header() {
                 Login
               </Nav.Link>
             )}
-            <Nav.Link className='navbar__nav--link' href='/adverts/new'>
-              Create Advert
-            </Nav.Link>
-            <NavDropdown title='Account' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='/account/settings'>
-                Configuration
-              </NavDropdown.Item>
-            </NavDropdown>
+            {isLogged ? (
+              <Nav.Link className='navbar__nav--link' href='/account/settings'>
+                Settings
+              </Nav.Link>
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Container>
