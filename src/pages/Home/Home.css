@@ -39,12 +39,16 @@
   margin: auto;
 }
 
+.home .home__filters h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
 .home .home__filters > .home__filters--content > .total__adverts {
-  border: 1px solid red;
   text-align: end;
   padding-right: 1rem;
-  margin: 2rem auto;
-  font-size: 1.5rem;
+  margin: 0.2rem auto;
+  font-size: 1.15rem;
 }
 
 /****************************** RESPONSIVE DESIGN *******************************/

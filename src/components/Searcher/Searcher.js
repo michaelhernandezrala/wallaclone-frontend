@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import './Searcher.css';
 
 function Searcher({ setfilter }) {
   const [nameFilter, setnameFilter] = useState('');
@@ -58,74 +59,81 @@ function Searcher({ setfilter }) {
   };
 
   return (
-    <div>
+    <div className='searcher'>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Producto</label>
-          <input
-            type='text'
-            id='name'
-            name='name'
-            placeholder='Nombre del producto'
-            value={nameFilter}
-            onChange={handleChangeName}
-          />
-        </div>
-        <div>
-          <label>Precio</label>
-          <Range min={0} max={10000} onChange={handleChangePrice} />
-          <div>
-            <p>{priceFilter[0]} €</p>
-            <p>{priceFilter[1]} €</p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div>
+        <div className='searcher__layout'>
+          <div className='searcher__left'>
+            <div className='searcher__form--data'>
+              <label>Name</label>
               <input
-                type='radio'
-                value='Compra'
-                name='sale'
-                onChange={handleChangeRadio}
+                type='text'
+                id='name'
+                name='name'
+                placeholder="Product's name"
+                value={nameFilter}
+                onChange={handleChangeName}
               />
-              Compra
             </div>
-            <div>
-              <input
-                type='radio'
-                value='Venta'
-                name='sale'
-                onChange={handleChangeRadio}
-              />
-              Venta
-            </div>
-            <div>
-              <input
-                type='radio'
-                value='Ambos'
-                name='sale'
-                onChange={handleChangeRadio}
-              />
-              Ambos
+            <div className='searcher__form--data'>
+              <label>Price</label>
+              <Range min={0} max={10000} onChange={handleChangePrice} />
+              <div className='range-prices'>
+                <p>{priceFilter[0]} €</p>
+                <p>{priceFilter[1]} €</p>
+              </div>
             </div>
           </div>
+          <div className='searcher__right'>
+            <div className='searcher__form--data radius-inputs'>
+              <div>
+                <input
+                  type='radio'
+                  value='Compra'
+                  name='sale'
+                  onChange={handleChangeRadio}
+                />
+                Buy
+              </div>
+              <div>
+                <input
+                  type='radio'
+                  value='Venta'
+                  name='sale'
+                  onChange={handleChangeRadio}
+                />
+                Sell
+              </div>
+              <div>
+                <input
+                  type='radio'
+                  value='Ambos'
+                  name='sale'
+                  onChange={handleChangeRadio}
+                />
+                Both
+              </div>
+            </div>
+            <div className='searcher__form--data'>
+              <select
+                multiple={true}
+                value={tagsFilter}
+                onChange={handleChangeTags}
+                className='searcher__input--select'
+              >
+                <option value='lifestyle'>Lifestyle</option>
+                <option value='mobile'>Mobile</option>
+                <option value='motor'>Motor</option>
+                <option value='work'>Work</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div>
-          <select
-            multiple={true}
-            value={tagsFilter}
-            onChange={handleChangeTags}
-          >
-            <option value='lifestyle'>Lifestyle</option>
-            <option value='mobile'>Mobile</option>
-            <option value='motor'>Motor</option>
-            <option value='work'>Work</option>
-          </select>
+        <div className='searcher__buttons'>
+          <button type='submit'>Apply filters</button>
+          <button onClick={resetFilters} variant='variant'>
+            Reset filters
+          </button>
         </div>
-        <button type='submit'>Aplicar filtros</button>
-        <button onClick={resetFilters} variant='variant'>
-          Borrar filtros
-        </button>
       </form>
     </div>
   );

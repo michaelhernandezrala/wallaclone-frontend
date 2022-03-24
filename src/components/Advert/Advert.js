@@ -1,18 +1,11 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import nophoto from '../../images/nophoto.jpg';
 
 import './Advert.css';
 
 function Advert({ advertId, name, price, description, photo }) {
-  const handleClick = (e) => {
-    console.log('se guarda el anuncio como favorito');
-
-    //TODO Añadir el código
-  };
   const isPhoto = photo ? photo : nophoto;
   return (
     <Link to={`/adverts/${advertId}`} className='link'>
@@ -24,11 +17,6 @@ function Advert({ advertId, name, price, description, photo }) {
           </h1>
           <h2 className='advert__name'>{name}</h2>
           <p className='advert__description'>{description}</p>
-          <FontAwesomeIcon
-            onClick={handleClick}
-            className='advert__icon'
-            icon={faHeart}
-          />
         </div>
       </article>
     </Link>
