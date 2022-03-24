@@ -63,29 +63,27 @@ function NewAdvert() {
               value={value.name}
               onChange={handleChange}
             />
-            <br />
             <div className='sale'>
-              <label htmlFor='Sale'>To Sell</label>
+              <label for='sale'>To sell</label>
               <input
-                required
-                type='radio'
                 name='sale'
                 className='sale'
+                type='radio'
                 value={true}
                 onChange={handleChange}
                 id='sale'
               />
-              <label htmlFor='Buy'>To Buy</label>
+              &nbsp;&nbsp;
+              <label for='compro'>To buy</label>
               <input
-                type='radio'
-                name='buy'
+                name='sale'
                 className='buy'
+                type='radio'
                 value={false}
                 onChange={handleChange}
-                id='buy'
+                id='venta'
               />
             </div>
-
             <label htmlFor='Price'>Price</label>
             <input
               required
@@ -96,9 +94,8 @@ function NewAdvert() {
               value={value.price}
               onChange={handleChange}
             />
-
             <div className='tags-selection'>
-              <label htmlFor='Tags'> Choose tags </label>
+              <label htmlFor='tags'> Choose tags </label>
               <select
                 required
                 name='tags'
@@ -122,7 +119,6 @@ function NewAdvert() {
                 </option>
               </select>
             </div>
-            <br />
             <div>
               <label className='photo-label' htmlFor='photo'>
                 Upload a photo
@@ -134,7 +130,6 @@ function NewAdvert() {
                 onChange={handleChange}
               />
             </div>
-            <br />
             <Button
               className='submit-button'
               type='submit'
