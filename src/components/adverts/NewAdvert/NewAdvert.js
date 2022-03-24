@@ -48,29 +48,30 @@ function NewAdvert() {
 
   return (
     <Layout>
-      <div className='newAdvPage'>
-        <Container>
-          <h1>Create your new advert here</h1>
+      <main className='newAdvPage'>
+        <section className='newAdvPage__content'>
+          <h1 className='newAdvPage__title'>Create advert</h1>
           <form className='form' onSubmit={handleSubmit}>
-            <label htmlFor='Name'>What product do you want to advertise?</label>
-            <input
-              required
-              autoFocus
-              className='newAdvert-name'
-              placeholder='Name of product'
-              name='name'
-              type='text'
-              value={value.name}
-              onChange={handleChange}
-            />
-            <br />
-            <div className='sale'>
+            <div className='newAdvPage__form--control'>
+              <label htmlFor='Name'>Name</label>
+              <input
+                required
+                autoFocus
+                className='newAdvert__input'
+                placeholder='Name of product'
+                name='name'
+                type='text'
+                value={value.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='newAdvPage__form--control--sale '>
               <label htmlFor='Sale'>To Sell</label>
               <input
                 required
                 type='radio'
                 name='sale'
-                className='sale'
+                className='newAdvert__input'
                 value={true}
                 onChange={handleChange}
                 id='sale'
@@ -79,25 +80,26 @@ function NewAdvert() {
               <input
                 type='radio'
                 name='buy'
-                className='buy'
+                className='newAdvert__input'
                 value={false}
                 onChange={handleChange}
                 id='buy'
               />
             </div>
+            <div className='newAdvPage__form--control'>
+              <label htmlFor='Price'>Price</label>
+              <input
+                required
+                name='price'
+                placeholder='Price'
+                className='newAdvert__input'
+                type='number'
+                value={value.price}
+                onChange={handleChange}
+              />
+            </div>
 
-            <label htmlFor='Price'>Price</label>
-            <input
-              required
-              name='price'
-              placeholder='Price'
-              className='newAdvert-price'
-              type='number'
-              value={value.price}
-              onChange={handleChange}
-            />
-
-            <div className='tags-selection'>
+            <div className='newAdvPage__form--control '>
               <label htmlFor='Tags'> Choose tags </label>
               <select
                 required
@@ -107,6 +109,7 @@ function NewAdvert() {
                 multiple={true}
                 value={[value.tags]}
                 onChange={handleChange}
+                className='tags-selection'
               >
                 <option name='lifestyle' value='lifestyle'>
                   Lifestyle
@@ -122,15 +125,14 @@ function NewAdvert() {
                 </option>
               </select>
             </div>
-            <br />
-            <div>
+            <div className='newAdvPage__form--control newAdvert__photo'>
               <label className='photo-label' htmlFor='photo'>
                 Upload a photo
               </label>
               <input
-                className='photo-input'
                 name='photo'
                 type='file'
+                className='newAdvert__input'
                 onChange={handleChange}
               />
             </div>
@@ -145,8 +147,8 @@ function NewAdvert() {
               Create
             </Button>
           </form>
-        </Container>
-      </div>
+        </section>
+      </main>
     </Layout>
   );
 }
