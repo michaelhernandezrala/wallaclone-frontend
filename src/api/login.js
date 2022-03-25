@@ -3,15 +3,16 @@ import client from './client';
 import { setAuthorizationHeader } from './client';
 
 const login = (credentials, checked) => {
+  console.log('credentials', credentials);
   return client.post('/api/login', credentials).then((response) => {
+    console.log('response', response);
     if (response.ok) {
       setAuthorizationHeader(response.token);
       if (checked) {
         storage.set('auth', response.token);
       }
-    } else {
-      return response;
     }
+    return response;
   });
 };
 

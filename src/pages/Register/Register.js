@@ -3,8 +3,9 @@ import { Formik, Field, Form } from 'formik';
 import register from '../../api/register';
 import { Link } from 'react-router-dom';
 import './Register.css';
+import Swal from 'sweetalert2';
 
-function Register() {
+function Register({ history, location }) {
   const [errorRegister, setErrorRegister] = useState({
     isError: false,
     message: '',
@@ -77,6 +78,15 @@ function Register() {
                   message: '',
                 });
                 console.log('user register correctly');
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Registered Successfully',
+                  showConfirmButton: false,
+                  timer: 1500,
+                }).then(() => {
+                  history.replace('/login');
+                });
               } catch (error) {
                 setErrorRegister({
                   isError: true,
@@ -136,7 +146,11 @@ function Register() {
                 <button className='register__button' type='submit'>
                   Register
                 </button>
-                {errorRegister.isError ? <p>{errorRegister.message}</p> : null}
+                {errorRegister.isError ? (
+                  <p className='register__error'>{errorRegister.message}</p>
+                ) : (
+                  ''
+                )}
               </Form>
             )}
           </Formik>

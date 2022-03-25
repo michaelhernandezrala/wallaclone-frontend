@@ -9,14 +9,14 @@ function Skipper({ handlePagination, pagination, count }) {
         onClick={handlePagination}
         disabled={pagination.skip === 0}
       >
-        Atrás
+        Previous
       </button>
       <button
         id='next'
         onClick={handlePagination}
         disabled={pagination.limit >= count}
       >
-        Siguiente
+        Next
       </button>
     </div>
   );

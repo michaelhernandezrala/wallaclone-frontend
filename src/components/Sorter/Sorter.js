@@ -1,12 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
+import './Sorter.css';
 
 function Sorter({ sorter, setSorter }) {
   const handleChangeSort = (e) => {
     setSorter(e.target.value);
   };
   return (
-    <div>
+    <div className='sorter'>
       <select value={sorter} onChange={handleChangeSort}>
         <option value='none'>--</option>
         <option value='a-z'>Ordenar alfabeticamente [A-Z]</option>

@@ -7,26 +7,26 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-// CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 import Home from './pages/Home/Home';
-import Settings from './pages/Settings/Settings';
+import { NewAdvert, AdvertDetail } from './components/adverts';
+import { useState } from 'react';
+import logout from './api/logout';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import ForgottenPassword from './pages/FogottenPassword/ForgottenPassword';
-import { useState } from 'react';
-import logout from './api/logout';
+import Settings from './pages/Settings/Settings';
+
 import { AuthContextProvider } from './components/auth/context';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import Swal from 'sweetalert2';
 
-// Components
-
-import { NewAdvert, AdvertDetail } from './components/adverts';
 import { PrivateRoute } from './components/auth';
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = useState(isInitiallyLogged);
+  console.log('isInitiallyLogged', isInitiallyLogged);
 
   const handleLogin = () => {
     setIsLogged(true);
@@ -62,7 +62,7 @@ function App({ isInitiallyLogged }) {
               {(routeProps) => <Login {...routeProps} />}
             </Route>
             <Route path='/register'>
-              <Register />
+              {(routeProps) => <Register {...routeProps} />}
             </Route>
             <Route path='/forgottenPassword'>
               <ForgottenPassword />
@@ -70,7 +70,7 @@ function App({ isInitiallyLogged }) {
             <PrivateRoute path='/adverts/new'>
               <NewAdvert />
             </PrivateRoute>
-            <Route path='/adverts/:advertId' component={AdvertDetail}></Route>
+            <Route path='/adverts/:advertId' component={AdvertDetail} />
             <Route>
               <Redirect to='/home' />
             </Route>

@@ -1,31 +1,108 @@
-.search {
-  background-color: aliceblue;
-  padding: 2rem 1rem;
-  max-width: 85%;
-  margin: auto;
+.searcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.search > .search__title {
-  font-size: 0.9rem;
-  font-weight: bold;
+.searcher__layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.search > .search__form {
-  margin-top: 1rem;
+.searcher__layout > .searcher__left,
+.searcher__layout > .searcher__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.search > .search__form .form-group {
+.searcher__form--data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0.5rem auto;
+}
+
+.searcher__form--data > label {
+  margin-bottom: 0.45rem;
+  font-size: 1.15rem;
+}
+
+.searcher__form--data input {
+  border: none;
+  outline: none;
+}
+
+.range-prices {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.radius-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.searcher__buttons {
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
-.search > .search__form .form-group input {
-  font-size: 0.8rem;
+.searcher__buttons button {
+  margin: auto;
+  width: 50%;
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.25rem;
+  border: 1px solid rgb(221, 239, 255);
+  background-color: white;
 }
 
 /****************************** RESPONSIVE DESIGN *******************************/
-@media (min-width: 576px) {
-  .search {
-    max-width: 100%;
+
+@media (min-width: 768px) {
+  .searcher {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .searcher form {
+    width: 70%;
+  }
+  .searcher__layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .radius-inputs {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+  }
+  .searcher__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .searcher__buttons button {
+    margin: auto;
+    display: inline;
+    padding: 0.25rem;
   }
 }
