@@ -124,7 +124,8 @@ function Home() {
               <Skipper
                 handlePagination={handlePagination}
                 pagination={pagination}
-                count={totalAdverts}
+                total={totalAdverts}
+                count={adverts.length}
               />
             </div>
           </section>

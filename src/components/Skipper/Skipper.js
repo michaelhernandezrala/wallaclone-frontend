@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Skipper({ handlePagination, pagination, count }) {
+function Skipper({ handlePagination, pagination, total, count }) {
   console.log(pagination.skip);
   return (
     <div>
@@ -14,7 +14,7 @@ function Skipper({ handlePagination, pagination, count }) {
       <button
         id='next'
         onClick={handlePagination}
-        disabled={pagination.skip >= count}
+        disabled={pagination.skip + count >= total}
       >
         Next
       </button>
