@@ -40,9 +40,7 @@ function Login({ history, location }) {
             }}
             onSubmit={async (values) => {
               try {
-                console.log(values);
                 const response = await login(values, checked);
-                console.log('response', response);
                 if (response.ok === true) {
                   Swal.fire({
                     position: 'center',

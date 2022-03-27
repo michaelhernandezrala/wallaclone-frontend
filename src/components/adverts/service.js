@@ -18,6 +18,8 @@ export const deleteAdvert = (advertId) => {
 };
 
 export const getLatestAdverts = (skip, limit, sorter) => {
+  console.log('skip', skip);
+  console.log('limit', limit);
   let sort = 'updatedAt';
   let order = 'desc';
   switch (sorter) {

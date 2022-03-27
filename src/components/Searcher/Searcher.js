@@ -20,7 +20,6 @@ function Searcher({ setfilter }) {
   const handleChangeRadio = (e) => {
     const name = e.target.name;
     let value = '';
-
     if (e.target.value === 'Venta') {
       value = true;
     } else if (e.target.value === 'Compra') {

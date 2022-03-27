@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Skipper({ handlePagination, pagination, count }) {
+  console.log(pagination.skip);
   return (
     <div>
       <button
@@ -14,7 +14,7 @@ function Skipper({ handlePagination, pagination, count }) {
       <button
         id='next'
         onClick={handlePagination}
-        disabled={pagination.limit >= count}
+        disabled={pagination.skip >= count}
       >
         Next
       </button>
