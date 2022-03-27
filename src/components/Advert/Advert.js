@@ -5,10 +5,10 @@ import nophoto from '../../images/nophoto.jpg';
 
 import './Advert.css';
 
-function Advert({ advertId, name, price, description, photo }) {
+function Advert({ _id, name, price, description, photo }) {
   const isPhoto = photo ? photo : nophoto;
   return (
-    <Link to={`/adverts/${advertId}`} className='link'>
+    <Link to={`/adverts/${_id}`} className='link'>
       <article className='home__adverts--list-item-content'>
         <img className='advert__img' src={isPhoto} alt={name} />
         <div className='advert__info'>

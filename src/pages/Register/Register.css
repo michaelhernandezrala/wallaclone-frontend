@@ -30,6 +30,11 @@
   font-size: 1.75rem;
   margin: 2rem;
 }
+.register__form-data {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
 
 .register__content label {
   color: white;
