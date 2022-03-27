@@ -9,7 +9,12 @@ function Header() {
   const { isLogged, handleLogout } = useContext(AuthContext);
 
   return (
-    <Navbar className='navbar' bg='primary' color='white' expand='lg'>
+    <Navbar
+      className='navbar navbar-dark'
+      bg='primary'
+      color='white'
+      expand='lg'
+    >
       <Container>
         <Navbar.Brand className='navbar__title' href='/'>
           WallaClone

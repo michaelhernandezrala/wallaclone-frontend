@@ -9,10 +9,10 @@ function Sorter({ sorter, setSorter }) {
     <div className='sorter'>
       <select value={sorter} onChange={handleChangeSort}>
         <option value='none'>--</option>
-        <option value='a-z'>Ordenar alfabeticamente [A-Z]</option>
-        <option value='z-a'>Ordenar alfabeticamente [Z-A]</option>
-        <option value='cheap'>Ordenar de mas barato a mas caro</option>
-        <option value='expensive'>Ordenar de mas caro a mas barato</option>
+        <option value='a-z'>Sort alphabetically [A-Z]</option>
+        <option value='z-a'>Sort alphabetically [Z-A]</option>
+        <option value='cheap'>Sort from cheapest to most expensive</option>
+        <option value='expensive'>Sort from most expensive to cheapest</option>
       </select>
     </div>
   );
