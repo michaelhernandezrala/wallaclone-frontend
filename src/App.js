@@ -26,7 +26,6 @@ import { PrivateRoute } from './components/auth';
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = useState(isInitiallyLogged);
-  console.log('isInitiallyLogged', isInitiallyLogged);
 
   const handleLogin = () => {
     setIsLogged(true);

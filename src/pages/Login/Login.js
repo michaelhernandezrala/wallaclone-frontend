@@ -40,9 +40,7 @@ function Login({ history, location }) {
             }}
             onSubmit={async (values) => {
               try {
-                console.log(values);
                 const response = await login(values, checked);
-                console.log('response', response);
                 if (response.ok === true) {
                   Swal.fire({
                     position: 'center',
@@ -68,21 +66,25 @@ function Login({ history, location }) {
           >
             {({ errors, touched, values }) => (
               <Form>
-                <label htmlFor='email'>Email</label>
-                <Field
-                  className='login__input'
-                  name='email'
-                  validate={validateEmail}
-                />
+                <div className='login__form-data'>
+                  <label htmlFor='email'>Email</label>
+                  <Field
+                    className='login__input'
+                    name='email'
+                    validate={validateEmail}
+                  />
+                </div>
                 {errors.email && touched.email && (
                   <div className='login__error'>{errors.email}</div>
                 )}
-                <label htmlFor='password'>Password</label>
-                <Field
-                  className='login__input'
-                  type='password'
-                  name='password'
-                />
+                <div className='login__form-data'>
+                  <label htmlFor='password'>Password</label>
+                  <Field
+                    className='login__input'
+                    type='password'
+                    name='password'
+                  />
+                </div>
                 <div className='form-control-remember-me'>
                   <label htmlFor='checkbox'>Remember me</label>
                   <input
@@ -95,15 +97,17 @@ function Login({ history, location }) {
                 {errorLogin.isError ? (
                   <p className='login__error'>{errorLogin.message}</p>
                 ) : null}
-                <Link className='login__link' to='/register'>
-                  I don't have an account
-                </Link>
-                <Link className='login__link' to='/forgottenPassword'>
-                  Recover my password
-                </Link>
-                <button className='login__button' type='submit'>
-                  Log in
-                </button>
+                <div className='login__form-data'>
+                  <Link className='login__link' to='/register'>
+                    I don't have an account
+                  </Link>
+                  <Link className='login__link' to='/forgottenPassword'>
+                    Recover my password
+                  </Link>
+                  <button className='login__button' type='submit'>
+                    Log in
+                  </button>
+                </div>
               </Form>
             )}
           </Formik>

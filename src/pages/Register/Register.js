@@ -97,55 +97,65 @@ function Register({ history, location }) {
           >
             {({ errors, touched, isValidating, values }) => (
               <Form>
-                <label htmlFor='name'>Name</label>
-                <Field
-                  className='register__input'
-                  type='text'
-                  name='name'
-                  validate={validateName}
-                />
+                <div className='register__form-data'>
+                  <label htmlFor='name'>Name</label>
+                  <Field
+                    className='register__input'
+                    type='text'
+                    name='name'
+                    validate={validateName}
+                  />
+                </div>
                 {errors.name && touched.name && (
                   <div className='register__error'>{errors.name}</div>
                 )}
-                <label htmlFor='email'>Email</label>
-                <Field
-                  className='register__input'
-                  name='email'
-                  validate={validateEmail}
-                />
+                <div className='register__form-data'>
+                  <label htmlFor='email'>Email</label>
+                  <Field
+                    className='register__input'
+                    name='email'
+                    validate={validateEmail}
+                  />
+                </div>
                 {errors.email && touched.email && (
                   <div className='register__error'>{errors.email}</div>
                 )}
-                <label htmlFor='password'>Password</label>
-                <Field
-                  className='register__input'
-                  type='password'
-                  name='password'
-                  validate={validatePassword}
-                />
+                <div className='register__form-data'>
+                  <label htmlFor='password'>Password</label>
+                  <Field
+                    className='register__input'
+                    type='password'
+                    name='password'
+                    validate={validatePassword}
+                  />
+                </div>
                 {errors.password && touched.password && (
                   <div className='register__error'>{errors.password}</div>
                 )}
-                <label htmlFor='confirmPassword'>Confirm Password</label>
-                <Field
-                  className='register__input'
-                  type='password'
-                  name='confirmPassword'
-                  validate={(value) =>
-                    validateConfirmPassword(value, values.password)
-                  }
-                />
+                <div className='register__form-data'>
+                  <label htmlFor='confirmPassword'>Confirm Password</label>
+                  <Field
+                    className='register__input'
+                    type='password'
+                    name='confirmPassword'
+                    validate={(value) =>
+                      validateConfirmPassword(value, values.password)
+                    }
+                  />
+                </div>
                 {errors.confirmPassword && touched.confirmPassword && (
                   <div className='register__error'>
                     {errors.confirmPassword}
                   </div>
                 )}
-                <Link className='register__already-have-account' to='/login'>
-                  I already have an account
-                </Link>
-                <button className='register__button' type='submit'>
-                  Register
-                </button>
+                <div className='register__form-data'>
+                  <Link className='register__already-have-account' to='/login'>
+                    I already have an account
+                  </Link>
+                  <button className='register__button' type='submit'>
+                    Register
+                  </button>
+                </div>
                 {errorRegister.isError ? (
                   <p className='register__error'>{errorRegister.message}</p>
                 ) : (

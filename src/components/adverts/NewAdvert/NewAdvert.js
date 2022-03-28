@@ -12,8 +12,8 @@ function NewAdvert() {
   const history = useHistory();
   const [value, setValue] = useState({
     name: '',
-    sale: '',
-    price: '',
+    sale: false,
+    price: 0,
     tags: [],
     photo: '',
   });
@@ -32,6 +32,11 @@ function NewAdvert() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      if (value.sale === 'true') {
+        value.sale = true;
+      } else {
+        value.sale = false;
+      }
       const createdAdvert = await createAdvert(value);
       setCreatedAdvertId(createdAdvert.id);
       history.push('/');

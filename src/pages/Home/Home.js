@@ -22,6 +22,7 @@ const EmptyListFiltered = () => (
 );
 
 function Home() {
+  const [totalAdverts, setTotalAdverts] = useState(0);
   const [adverts, setAdverts] = useState([]);
   const [filter, setfilter] = useState({
     name: '',
@@ -36,10 +37,11 @@ function Home() {
   });
 
   const handlePagination = (e) => {
+    e.preventDefault();
     if (e.target.id === 'next') {
       setPagination({
         skip: pagination.skip + 10,
-        limit: pagination.limit + 10,
+        limit: 10,
       });
     } else {
       if (pagination.skip === 0) {
@@ -50,15 +52,27 @@ function Home() {
       } else {
         setPagination({
           skip: pagination.skip - 10,
-          limit: pagination.limit - 10,
+          limit: 10,
         });
       }
     }
   };
 
   useEffect(() => {
+    console.log('primer useEffect');
+
+    getLatestAdverts('', '', sorter).then((response) => {
+      setTotalAdverts(response.results.length);
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log('segundo useEffect');
+    console.log('pagination', pagination);
     getLatestAdverts(pagination.skip, pagination.limit, sorter).then(
       (response) => {
+        console.log('longitud', response.results.length);
+
         let tagsFiltered = [];
         if (filter.tags.length !== 0) {
           response.results.forEach((element) => {
@@ -76,7 +90,6 @@ function Home() {
         }
 
         setAdverts(tagsFiltered);
-
         let finalfiltersAdverts = [];
         for (const ad of tagsFiltered) {
           if (
@@ -93,7 +106,7 @@ function Home() {
         setAdverts(finalfiltersAdverts);
       }
     );
-  }, [filter, sorter, pagination]);
+  }, [filter, pagination, sorter]);
 
   return (
     <Layout>
@@ -103,13 +116,15 @@ function Home() {
             <h1>What are you looking for?</h1>
             <div className='home__filters--content'>
               <p className='total__adverts'>
-                <strong>Total adverts</strong> {adverts.length}
+                <strong>Total adverts </strong>
+                {`${pagination.skip + adverts.length} / ${totalAdverts}`}
               </p>
               <Searcher setfilter={setfilter} />
               <Sorter setSorter={setSorter} sorter={sorter} />
               <Skipper
                 handlePagination={handlePagination}
                 pagination={pagination}
+                total={totalAdverts}
                 count={adverts.length}
               />
             </div>

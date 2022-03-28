@@ -31,6 +31,16 @@
   margin: 2rem;
 }
 
+.login__form-data {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.login__form-data .login__link {
+  margin-bottom: 0.25rem;
+}
+
 .login__content label {
   color: white;
   margin-top: 0.25rem;
