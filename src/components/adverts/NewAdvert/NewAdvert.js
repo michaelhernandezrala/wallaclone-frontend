@@ -1,9 +1,10 @@
 import './NewAdvert.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router';
 import { Button } from '../../common';
 //import { Loader } from '../utils/Loader' // TODO
 import { createAdvert } from '../service';
+import { SelectionTags } from '../SelectionTags';
 import Layout from '../../Layout/Layout';
 import { Container } from 'react-bootstrap';
 
@@ -101,29 +102,12 @@ function NewAdvert() {
 
             <div className='newAdvPage__form--control '>
               <label htmlFor='Tags'> Choose tags </label>
-              <select
-                required
-                name='tags'
-                id='tags'
-                size='4'
-                multiple={true}
-                value={[value.tags]}
+              <SelectionTags
+                multiple
+                name="tags"
+                value={value.tags}
                 onChange={handleChange}
-                className='tags-selection'
-              >
-                <option name='lifestyle' value='lifestyle'>
-                  Lifestyle
-                </option>
-                <option name='work' value='work'>
-                  Work
-                </option>
-                <option name='motor' value='motor'>
-                  Motor
-                </option>
-                <option name='mobile' value='mobile'>
-                  Mobile
-                </option>
-              </select>
+              />
             </div>
             <div className='newAdvPage__form--control newAdvert__photo'>
               <label className='photo-label' htmlFor='photo'>

@@ -45,3 +45,8 @@ export const getLatestAdverts = (skip, limit, sorter) => {
   const url = `${advertBaseUrl}/adverts?_expand=user&_embed=likes&_skip=${skip}&_limit=${limit}&_sort=${sort}&_order=${order}`;
   return client.get(url);
 };
+
+export const getTags = () => {
+	const url = `${advertBaseUrl}/adverts/tags`;
+	return client.get(url);
+};
