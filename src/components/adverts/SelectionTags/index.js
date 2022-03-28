@@ -1,1 +1,1 @@
-export { default } from "./SelectionTags";
+export { default as SelectionTags } from "./SelectionTags";
