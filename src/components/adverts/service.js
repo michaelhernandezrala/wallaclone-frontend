@@ -18,8 +18,6 @@ export const deleteAdvert = (advertId) => {
 };
 
 export const getLatestAdverts = (skip, limit, sorter) => {
-  console.log('skip', skip);
-  console.log('limit', limit);
   let sort = 'updatedAt';
   let order = 'desc';
   switch (sorter) {
@@ -49,6 +47,6 @@ export const getLatestAdverts = (skip, limit, sorter) => {
 };
 
 export const getTags = () => {
-	const url = `${advertBaseUrl}/new-advert/tags`;
-	return client.get(url);
+  const url = `${advertBaseUrl}/new-advert/tags`;
+  return client.get(url);
 };

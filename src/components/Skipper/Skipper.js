@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Skipper({ handlePagination, pagination, total, count }) {
-  console.log(pagination.skip);
   return (
     <div>
       <button

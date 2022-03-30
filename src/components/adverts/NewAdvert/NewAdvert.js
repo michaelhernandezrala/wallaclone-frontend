@@ -4,7 +4,7 @@ import { Redirect, useHistory } from 'react-router';
 import { Button } from '../../common';
 import { createAdvert } from '../service';
 import Layout from '../../Layout/Layout';
-import { Container } from 'react-bootstrap';
+import FileBase64 from 'react-file-base64';
 
 function NewAdvert() {
   const history = useHistory();
@@ -105,38 +105,36 @@ function NewAdvert() {
             <div className='newAdvPage__form--control '>
               <label htmlFor='Tags'> Choose tags </label>
               <select
-              name="tags"
-              id="tags"
-              size="4"
-              value={[value.tags]}
-              onChange={handleChange}
-              multiple={true}
-              required
-            >
-              <option name="lifestyle" value="lifestyle">
-                Lifestyle
-              </option>
-              <option name="mobile" value="mobile">
-                Mobile
-              </option>
-              <option name="motor" value="motor">
-                Motor
-              </option>
-              <option name="work" value="work">
-                Work
-              </option>
-            </select>
-                
+                name='tags'
+                id='tags'
+                size='4'
+                value={[value.tags]}
+                onChange={handleChange}
+                multiple={true}
+                required
+              >
+                <option name='lifestyle' value='lifestyle'>
+                  Lifestyle
+                </option>
+                <option name='mobile' value='mobile'>
+                  Mobile
+                </option>
+                <option name='motor' value='motor'>
+                  Motor
+                </option>
+                <option name='work' value='work'>
+                  Work
+                </option>
+              </select>
             </div>
             <div className='newAdvPage__form--control newAdvert__photo'>
               <label className='photo-label' htmlFor='photo'>
                 Upload a photo
               </label>
-              <input
-                name='photo'
+              <FileBase64
                 type='file'
-                className='newAdvert__input'
-                onChange={handleChange}
+                multiple={false}
+                onDone={({ base64 }) => setValue({ ...value, photo: base64 })}
               />
             </div>
             <Button

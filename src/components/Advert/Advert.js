@@ -6,6 +6,7 @@ import nophoto from '../../images/nophoto.jpg';
 import './Advert.css';
 
 function Advert({ _id, name, price, description, photo }) {
+  console.log('photo', photo);
   const isPhoto = photo ? photo : nophoto;
   return (
     <Link to={`/adverts/${_id}`} className='link'>

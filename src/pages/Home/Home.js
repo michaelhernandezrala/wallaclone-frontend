@@ -59,20 +59,14 @@ function Home() {
   };
 
   useEffect(() => {
-    console.log('primer useEffect');
-
     getLatestAdverts('', '', sorter).then((response) => {
       setTotalAdverts(response.results.length);
     });
   }, []);
 
   useEffect(() => {
-    console.log('segundo useEffect');
-    console.log('pagination', pagination);
     getLatestAdverts(pagination.skip, pagination.limit, sorter).then(
       (response) => {
-        console.log('longitud', response.results.length);
-
         let tagsFiltered = [];
         if (filter.tags.length !== 0) {
           response.results.forEach((element) => {

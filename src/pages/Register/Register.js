@@ -77,7 +77,6 @@ function Register({ history, location }) {
                   isError: false,
                   message: '',
                 });
-                console.log('user register correctly');
                 Swal.fire({
                   position: 'center',
                   icon: 'success',
