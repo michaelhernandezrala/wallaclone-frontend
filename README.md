@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Wallaclone-Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -9,7 +9,7 @@ In the project directory, you can run:
  `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -65,6 +65,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+ `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Project
+
+This project is a SPA (Single Page Application) with a series of routes implemented divided into two groups *Public* and *Protected*. In each of them a main component is rendered:
+
+* Public: For any user:
+
+- `/home`: Homepage
+- `/login`: Login page
+- `/register`: User registration page
+
+* Protected: Accessible only to registered users. Any unauthenticated user access to any of these paths will redirect to `/login`
+
+- `/adverts/new`: Create a new ads
+- `/adverts/id`: Detail
+
+For any other url that does not match, it will be redirected to the 404 error page
+
