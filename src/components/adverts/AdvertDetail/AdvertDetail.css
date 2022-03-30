@@ -1,0 +1,12 @@
+.AdvertDetail__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px #ccc;
+  padding: 2rem;
+}
+
+.AdvertDetail__content > .Photo-div img {
+  width: 50%;
+}
