@@ -49,6 +49,6 @@ export const getLatestAdverts = (skip, limit, sorter) => {
 };
 
 export const getTags = () => {
-	const url = `${advertBaseUrl}/adverts/tags`;
+	const url = `${advertBaseUrl}/new-advert/tags`;
 	return client.get(url);
 };

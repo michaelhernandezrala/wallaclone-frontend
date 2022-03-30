@@ -2,9 +2,7 @@ import './NewAdvert.css';
 import { useState, useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router';
 import { Button } from '../../common';
-//import { Loader } from '../utils/Loader' // TODO
 import { createAdvert } from '../service';
-import { SelectionTags } from '../SelectionTags';
 import Layout from '../../Layout/Layout';
 import { Container } from 'react-bootstrap';
 
@@ -20,7 +18,6 @@ function NewAdvert() {
 
   const [error, setError] = useState(null);
   const [CreateAdvertId, setCreatedAdvertId] = useState('');
-  //const [loader, setLoader] = useState(false) // TODO
 
   const handleChange = (event) => {
     setValue((previousState) => ({
@@ -107,12 +104,29 @@ function NewAdvert() {
 
             <div className='newAdvPage__form--control '>
               <label htmlFor='Tags'> Choose tags </label>
-              <SelectionTags
-                multiple
-                name="tags"
-                value={value.tags}
-                onChange={handleChange}
-              />
+              <select
+              name="tags"
+              id="tags"
+              size="4"
+              value={[value.tags]}
+              onChange={handleChange}
+              multiple={true}
+              required
+            >
+              <option name="lifestyle" value="lifestyle">
+                Lifestyle
+              </option>
+              <option name="mobile" value="mobile">
+                Mobile
+              </option>
+              <option name="motor" value="motor">
+                Motor
+              </option>
+              <option name="work" value="work">
+                Work
+              </option>
+            </select>
+                
             </div>
             <div className='newAdvPage__form--control newAdvert__photo'>
               <label className='photo-label' htmlFor='photo'>
