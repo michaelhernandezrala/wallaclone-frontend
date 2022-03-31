@@ -17,7 +17,8 @@ function AdvertDetail({ match }) {
   const handleDelete = async (event) => {
     event.preventDefault();
     try {
-      await deleteAdvert(advert.id);
+      // await deleteAdvert(advert.id);
+      await deleteAdvert(match.params.advertId);
     } catch (error) {
       console.error(error);
     }

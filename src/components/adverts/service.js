@@ -13,7 +13,7 @@ export const getAdvert = (advertId) => {
 };
 
 export const deleteAdvert = (advertId) => {
-  const url = `${advertBaseUrl}/${advertId}`;
+  const url = `${advertBaseUrl}/adverts/${advertId}`;
   return client.delete(url);
 };
 
