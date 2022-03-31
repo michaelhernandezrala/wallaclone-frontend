@@ -13,7 +13,7 @@ function Skipper({ handlePagination, pagination, total, count }) {
       <button
         id='next'
         onClick={handlePagination}
-        disabled={pagination.skip + count >= total}
+        disabled={total - pagination.skip < 10}
       >
         Next
       </button>
